@@ -7,7 +7,9 @@ system_message = """
 
 
 def main():
-    prompt = "Give me a random inspirational quote. Do not put it in quotes but put a % symbol between the quote and the author."
+    prompt = """Give me a random quote. Do not put it in quotes but put a % symbol between the quote and the author.
+    Example: The best way to predict the future is to invent it. %Alan Kay
+    """
     content = ask_gpt(prompt)
 
     content = content.split("%")
