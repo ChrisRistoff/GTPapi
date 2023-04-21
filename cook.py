@@ -37,13 +37,8 @@ def main():
 
         print("TITLE: " + title)
 
-        print("INGREDIENTS:")
-        for i in ingredients:
-            print(i)
-
-        print("INSTRUCTIONS:")
-        for i in instructions:
-            print(i)
+        print(ingredients)
+        print(instructions)
 
         # print("\033[1;33m \nAnswer:\n\n", content + "\n")
         user_input = input("\033[1;31m Ask question: ")
@@ -63,7 +58,7 @@ def ask_gpt(prompt: str, chat_history: list, system_message: str):
         {"role": "system", "content": system_message},
         *chat_history,
         user_prompt
-    ]
+        ]
     )
 
     content = response["choices"][0]["message"]["content"]
