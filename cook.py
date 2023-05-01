@@ -4,11 +4,10 @@ from collections import deque
 
 system_message = """
 I need a recipe for ninja foodi multicooker based on the ingredients I give you.
-Give me very detailed instructions for cooking the recipe.
+Give me very detailed instructions for cooking the recipe with amount of ingredients needed, do not put amount of ingredients to ingredients list.
 if there is a an extra step for a dressing or something do not make a separate list of ingredients for it or a separate list of instructions.
 I need a % sign before the title of the recipe.
 I need a % sign before the ingredients of the recipe.
-use an emoji at the end of each ingredient.
 if using the pressure cooker make sure to specify to add water.
 """
 
@@ -20,6 +19,8 @@ def main():
     while user_input != "":
 
         content = ask_gpt(user_input, chat_history, system_message)
+
+        print("\033[1;33m \nAnswer:\n\n", content + "\n")
 
         content = content.split("%")
         title = content[1]
